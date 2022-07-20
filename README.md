@@ -6,3 +6,5 @@ The original version is hosted at https://github.com/zhiyzuo/uiowa-thesis-disser
 https://www.overleaf.com/latex/templates/uiowa-thesis-dissertation/krrpgwczmstf 
 The revised version adds committee members names, and reflects some changes in APA 7 style, especially the figure caption position. 
 The revised version is also hosted at
+
+We will revise the template annually as needed.
