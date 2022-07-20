@@ -1,0 +1,38 @@
+\newcommand{\hbAppendixPrefix}{A}
+\renewcommand{\thefigure}{\hbAppendixPrefix.\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{\hbAppendixPrefix.\arabic{table}} 
+\setcounter{table}{0}
+
+\let\svaddcontentsline\addcontentsline
+\renewcommand\addcontentsline[3]{%
+      \ifthenelse{\equal{#1}{lof}}{}%
+        {\ifthenelse{\equal{#1}{lot}}{}{\svaddcontentsline{#1}{#2}{#3}}}}
+
+\section{APPENDIX \hbAppendixPrefix: Numeric data}
+
+The Appendix (A, B, and so on) heading is formatted as a Heading 1. Note that if you include only one Appendix, you do not need to assign it a letter. 
+
+Make a table in Appendix A:
+\begin{table}[ht]
+    \centering
+    \captionsetup{width=0.8\linewidth} %% change width to adjust the caption alignment
+    \caption{Sample table}
+    \begin{tabular}{cccccc}
+         \hline
+         \textbf{Column 1} & \textbf{Column}  & \textbf{Column 3} & \textbf{Column 4} & \textbf{Column 5} & \textbf{Column 6}\\
+         \hline
+         \textbf{Row 1} & 12.34 & 12.34 & 12.34 & 12.34 & 12.34 \\
+         \hline
+         \textbf{Row 2} & 12.34 & 12.34 & 12.34 & 12.34 & 12.34 \\
+         \hline
+    \end{tabular}
+    \label{table:tableA1}
+\end{table}
+
+And I am going to ref this table~\cref{table:tableA1}.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  

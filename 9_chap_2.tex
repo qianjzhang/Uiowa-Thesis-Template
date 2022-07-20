@@ -1,0 +1,28 @@
+\section{my chapter 2}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  
+
+Nam arcu libero,  nonummy eget,consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbitristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metusrhoncus sem.  Nulla et lectus vestibulum urna fringilla ultrices. 
+
+I want to cite something here \parencite{fennell2018predicting}. I want to want to try cite~\textcite{zuo2019standing} with in-line style.
+Add this table here:
+
+\begin{table}[ht]
+    \centering
+    \captionsetup{width=0.8\linewidth} %% change width to adjust the caption alignment
+    \caption{Sample table}
+    \begin{tabular}{cccccc}
+         \hline
+         \textbf{Column 1} & \textbf{Column}  & \textbf{Column 3} & \textbf{Column 4} & \textbf{Column 5} & \textbf{Column 6}\\
+         \hline
+         \textbf{Row 1} & 12.34 & 12.34 & 12.34 & 12.34 & 12.34 \\
+         \hline
+         \textbf{Row 2} & 12.34 & 12.34 & 12.34 & 12.34 & 12.34 \\
+         \hline
+    \end{tabular}
+    \label{table:table1}
+\end{table}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut, placeratac,  adipiscing vitae,  felis.   Curabitur dictum gravida mauris.  
+Nam arcu libero,  nonummy eget,consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant morbitristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metusrhoncus sem.  Nulla et lectus vestibulum urna fringilla ultrices~\cref{table:table1}. 
+

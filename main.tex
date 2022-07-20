@@ -1,0 +1,315 @@
+\documentclass[12pt]{article}
+
+%%%%%% This thesis template was originally created by Zhiya Zuo and Erin Kaufman in May 2019, and revised by Marina Zhang and Erin Kaufman in July 2022. %%%%%%
+
+%%%%%% start: define some names here %%%%%%
+\newcommand{\longvertspacing}{~\\~\\~\\~\\~\\~\\}
+\newcommand{\mylinespacing}{\vspace{1em}}
+\newcommand{\myoptpg}{\textbf{THIS PAGE IS OPTIONAL}}
+\newcommand{\mytitle}{my dissertation title}
+\newcommand{\sourcetitle}{Title of Source}
+\newcommand{\myname}{Name of Author}
+%%%% choose: Doctor of Philosophy, Doctor of Musical Arts, Master of Science, Master of Arts, Master of Fine Arts %%%%
+\newcommand{\degreetype}{\capitalize{Doctor of Philosophy}} 
+\newcommand{\mydegree}{\capitalize{my degree name}}
+\newcommand{\myprogram}{\capitalize{my program name}}
+%%%% choose: May, August, December  %%%%
+\newcommand{\mymonth}{Month}
+\newcommand{\myyear}{Year}
+\newcommand{\myadvisor}{Thesis Supervisor}
+\newcommand{\committeememberA}{Committee Member Name}
+\newcommand{\committeememberB}{Committee Member Name}
+\newcommand{\committeememberC}{Committee Member Name}
+\newcommand{\committeememberD}{Committee Member Name}
+%%%%%% start: define some names here %%%%%%
+
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ left=2.54cm,
+ right=2.54cm,
+ bottom=2.54cm,
+ top=2.54cm,
+ }
+\usepackage[utf8]{inputenc}
+
+%% ref related
+\usepackage{varioref}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+%% toc
+\usepackage{tocloft}
+%%% dots: https://tex.stackexchange.com/questions/53898/how-to-get-lines-with-dots-in-the-table-of-contents-for-sections
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+%%% adjust sectional unit title fonts in toc
+\renewcommand{\cftsecfont}{\normalfont\MakeUppercase} 
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+%%% use figure/table.num for the lot and lof
+%\renewcommand{\cftfigfont}{Figure~\alph{fig}.}
+%% source: https://tex.stackexchange.com/questions/419103/how-to-change-the-numbering-style-in-list-of-table-and-list-of-figures
+\renewcommand{\cftfigpresnum}{Figure }
+\renewcommand{\cftfigaftersnum}{.\hspace{1ex}}
+\renewcommand{\cfttabpresnum}{Table }
+\renewcommand{\cfttabaftersnum}{.\hspace{1ex}}
+%%% increase spacing between entries in toc
+\setlength{\cftparskip}{2ex}
+%%% decrease spacing between number and title as well as indent
+%\setlength{\cftfignumwidth}{10ex}
+%\setlength{\cfttabnumwidth}{8ex}
+\setlength{\cftfignumwidth}{10.5ex}
+\setlength{\cfttabnumwidth}{8ex}
+\setlength{\cftfigindent}{0ex}
+\setlength{\cfttabindent}{0ex}
+%%% title names
+%%% center uppercase toc titles
+%% https://tex.stackexchange.com/a/255699/154200
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\normalsize\MakeUppercase}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\contentsname}{table of contents}
+\renewcommand{\cftlottitlefont}{\hfill\normalsize\MakeUppercase}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\normalsize\MakeUppercase}
+\renewcommand{\cftafterloftitle}{\hfill}
+%% this package binds all indices to toc
+\usepackage[nottoc]{tocbibind}
+%%% remove toc numbering
+\makeatletter
+\let\latexl@section\l@section
+\def\l@section#1#2{\begingroup\let\numberline\@gobble\latexl@section{#1}{#2}\endgroup}
+\let\latexl@subsection\l@subsection
+\def\l@subsection#1#2{\begingroup\let\numberline\@gobble\latexl@subsection{#1}{#2}\endgroup}
+\let\latexl@subsubsection\l@subsubsection
+\def\l@subsubsection#1#2{\begingroup\let\numberline\@gobble\latexl@subsubsection{#1}{#2}\endgroup}
+\makeatother
+%% set figure path
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+%% captions
+\usepackage{boxhandler}
+\usepackage{caption}
+\captionsetup{labelsep=period, justification=raggedright, singlelinecheck=false}
+%% appendix
+\usepackage{appendix}
+%% biblatex
+\usepackage[style=apa,language=american,maxnames=4,minnames=3,sortcites=true]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{ref.bib}
+%% uses times font
+\usepackage{mathptmx}
+%% set fontsize
+\fontsize{12}{1} \selectfont
+%% set line spacing
+\usepackage{setspace}
+\singlespacing
+%% set par indent
+%\usepackage{indentfirst}
+\setlength{\parindent}{6.5ex}
+%% customize heading styles
+\usepackage[indentafter]{titlesec}
+%%%% heading 1
+\titleformat{\section}
+  {\normalsize\center}
+  {}
+  {0pt}
+  {\MakeUppercase}
+%%%% heading 2
+\titleformat{\subsection}
+  {\normalsize\center\bf}
+  {}
+  {0pt}
+  {\capitalize}
+%%%% heading 3
+\titleformat{\subsubsection}
+  {\normalsize\bf}
+  {}
+  {0pt}
+  {\capitalize}
+%%%% heading 4
+\titleformat{\paragraph}
+  {\normalsize\bf\itshape}
+  {}
+  {0pt}
+  {\capitalize}
+%\titleformat{⟨command⟩}[⟨shape⟩]{⟨format⟩}{⟨label⟩}{⟨sep⟩}{⟨before-code⟩}[⟨after-code⟩]
+
+%% a new center environment
+\newenvironment{tightcenter}{%
+  \setlength\topsep{0pt}
+  \setlength\parskip{0pt}
+  \begin{center}
+}{%
+  \end{center}
+}
+%% adjust quotation environment margin
+\renewenvironment{quote}{%
+   \list{}{%
+     \leftmargin0cm   % this is the adjusting screw
+     \rightmargin\leftmargin
+   }
+   \item\relax
+}
+{\endlist}
+
+%%%%%% capitalize from stackexchange %%%%%% 
+\usepackage{ifxetex}
+
+\usepackage{xparse}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\capitalize}{>{\SplitList{~}}m}
+ {
+  \seq_clear:N \l_capitalize_words_seq
+  \ProcessList{#1}{\CapitalizeFirst}
+  \seq_use:Nn \l_capitalize_words_seq { ~ }
+ }
+\NewDocumentCommand{\CapitalizeFirst}{m}
+ {
+  \capitalize_word:n { #1 }
+ }
+
+\sys_if_engine_pdftex:TF
+ {
+  \cs_set_eq:Nc \capitalize_tl_set:Nn { protected@edef }
+ }
+ {
+  \cs_set_eq:NN \capitalize_tl_set:Nn \tl_set:Nn
+ }
+
+\cs_new_protected:Nn \capitalize_word:n
+ {
+  \capitalize_tl_set:Nn \l_capitalize_word_tl { #1 }
+  \seq_if_in:NfTF \g_capitalize_exceptions_seq { \tl_to_str:n { #1 } }
+   % exception word
+   { \seq_put_right:Nn \l_capitalize_words_seq { #1 } } % exception word
+   % to be uppercased
+   { \seq_put_right:Nx \l_capitalize_words_seq { \tl_mixed_case:V \l_capitalize_word_tl } }
+ }
+\cs_generate_variant:Nn \tl_mixed_case:n { V }
+\NewDocumentCommand{\AppendToList}{m}
+ {
+  \clist_map_inline:nn { #1 }
+   {
+    \seq_gput_right:Nx \g_capitalize_exceptions_seq { \tl_to_str:n { ##1 } }
+   }
+ }
+\cs_generate_variant:Nn \seq_if_in:NnTF { Nf }
+\seq_new:N \l_capitalize_words_seq
+\seq_new:N \g_capitalize_exceptions_seq
+\ExplSyntaxOff
+
+\AppendToList{a,is,of,óf}
+%%%%%% capitalize from stackexchange %%%%%% 
+
+\title{\MakeUppercase{\normalsize\mytitle}\vspace{-2em}}
+\author{\vspace{-5ex}}
+\date{\vspace{-5ex}}
+
+\begin{document}
+
+\maketitle
+
+%% roman for frontmatter
+\pagenumbering{roman}
+\thispagestyle{empty}
+\longvertspacing
+\begin{tightcenter}
+    by
+\end{tightcenter}
+\mylinespacing
+\begin{tightcenter}
+    \myname
+\end{tightcenter}
+\longvertspacing
+\begin{tightcenter}
+A thesis submitted in partial fulfillment \\
+of the requirements for the \degreetype\\
+degree in \myprogram~in the  \\
+Graduate College of \\
+The University of Iowa
+\end{tightcenter}
+\mylinespacing
+\begin{tightcenter}
+\mymonth~\myyear
+\end{tightcenter}
+\mylinespacing
+\begin{tightcenter}
+Thesis Committee: Name of Thesis Supervisor, \myadvisor
+\end{tightcenter}
+\begin{tightcenter}
+\committeememberA
+\end{tightcenter}
+\begin{tightcenter}
+\committeememberB
+\end{tightcenter}
+\begin{tightcenter}
+\committeememberC
+\end{tightcenter}
+\begin{tightcenter}
+\committeememberD
+\end{tightcenter}
+%% copyright page %%
+
+\include{1_copyright}
+%% copyright page %%
+
+\pagenumbering{roman} 
+\setcounter{page}{2}
+%% dedication page %%
+\include{2_dedication}
+%% dedication page %%
+
+%% epigraph page %%
+\include{3_epigraph}
+%% epigraph page %%
+
+%% ack page %%
+\include{4_ack}
+%% ack page %%
+
+%% abs page %%
+\include{5_abs}
+%% abs page %%
+
+%% public abs page %%
+\include{6_public_abs}
+%% public abs page %%
+
+%% content lists %%
+\include{7_toc}
+%% content lists %%
+
+%% preface %%
+\include{8_preface}
+%% preface %%
+
+%% arabic for the rest
+\pagenumbering{arabic}
+
+\begin{doublespace}
+%% main contents %%
+\include{9_chap_1}
+\include{9_chap_2}
+\include{9_chap_3}
+%% main contents %%
+
+%% ref %%
+\newpage
+\section{references}
+\printbibliography[heading=none]
+%% ref %%
+
+%% appendix %%
+\appendix
+\include{9_chap_a}
+\include{9_chap_b}
+%% appendix %%
+
+
+\end{doublespace}
+
+
+\end{document}
